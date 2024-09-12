@@ -12,6 +12,9 @@ export class ProductService {
         return this.productRepository.find();
         //return "this is product";
     }
+    async getProduct_by_id(id:number):Promise<void>{
+        await this.productRepository.findOneBy({id});
+    }
     async deleteProduct(id:number):Promise<void>{
         await this.productRepository.delete(id) ;
         // return this.productRepository.find();

@@ -10,12 +10,17 @@ export class ProductController {
     getProduct(){
     return this.productService.getProduct();
     }
-    @Get('id')
-    async get_product_by_id(@Param('id')){
-    return this.productService.getProduct();
+    // @Get(':id')
+    // get_product_by_id(@Param('id') id:string){
+    // // return this.productService.getProduct_by_id(id);
+    // return "this id id";
+    // }
+    @Get(':id')
+    getItem(@Param('id') id: number) {
+      return this.productService.getProduct_by_id(id);
     }
-    @Delete(':id')
-    async deleteProduct(@Param('id')id:number) : Promise<void>{
-    return this.productService.deleteProduct(id);
-    }
+    // @Delete(':id')
+    // async deleteProduct(@Param('id')id:number) : Promise<void>{
+    // return this.productService.deleteProduct(id);
+    // }
 }
